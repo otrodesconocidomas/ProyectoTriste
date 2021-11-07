@@ -4,6 +4,7 @@
         <meta name="layout" content="main" />
         <g:set var="entityName" value="${message(code: 'local.label', default: 'Local')}" />
         <title><g:message code="default.show.label" args="[entityName]" /></title>
+        <asset:stylesheet href="gps.css"/>
     </head>
     <body>
         <a href="#show-local" class="skip" tabindex="-1"><g:message code="default.link.skip.label" default="Skip to content&hellip;"/></a>
@@ -27,5 +28,12 @@
                 </fieldset>
             </g:form>
         </div>
+        <div id="map"></div>
+        <asset:javascript src="localizacion.js"/>
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDVWhOl_toN0XyeiTsicovxfn7pm6HZyEU&callback=iniciarMapa"></script>
     </body>
 </html>
+<!--El div de la linea 31, el asset y el javascript son los dan la posicion del google maps,
+si quieren que aparezca mas arriba muvan esos 3 tags. Los archivos son gps.css y localizain.js
+vean el js porque la localizacion le puse la latitud y longitud directa en el codigo, así que 
+deben hacer que la latitud y longitud sean dianmicas dependiendo de lo ingresado-->
