@@ -21,6 +21,25 @@
             <div class="message" role="status">${flash.message}</div>
             </g:if>
             <f:display bean="local" />
+            <div id="map"></div>
+            <script>                
+            function iniciarMapa(){
+                <% 
+                    def latitudJS="${this.local.latitud}"
+                    def longitudJS="${this.local.longitud}"
+                %>
+                var coord = {lat: <%=latitudJS%>, lng: <%=longitudJS%>};
+                var map = new google.maps.Map(document.getElementById('map'),{
+                zoom: 18,
+                center: coord
+                });
+                var marker = new google.maps.Marker({
+                position: coord,
+                map: map
+                });
+            }
+            </script>
+            <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDVWhOl_toN0XyeiTsicovxfn7pm6HZyEU&callback=iniciarMapa"></script>
             <g:form resource="${this.local}" method="DELETE">
                 <fieldset class="buttons">
                     <g:link class="edit" action="edit" resource="${this.local}"><g:message code="default.button.edit.label" default="Edit" /></g:link>
@@ -28,12 +47,5 @@
                 </fieldset>
             </g:form>
         </div>
-        <div id="map"></div>
-        <asset:javascript src="localizacion.js"/>
-        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDVWhOl_toN0XyeiTsicovxfn7pm6HZyEU&callback=iniciarMapa"></script>
     </body>
 </html>
-<!--El div de la linea 31, el asset y el javascript son los dan la posicion del google maps,
-si quieren que aparezca mas arriba muvan esos 3 tags. Los archivos son gps.css y localizain.js
-vean el js porque la localizacion le puse la latitud y longitud directa en el codigo, así que 
-deben hacer que la latitud y longitud sean dianmicas dependiendo de lo ingresado-->

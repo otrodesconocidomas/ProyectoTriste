@@ -3,8 +3,8 @@ package gestion_laboratorio
 class Local {
     int idLocal
     String nombreLocal
-    float latitud 
-    float longuitud
+    String latitud 
+    String longitud
     static hasMany =[laboratorio:MateriaActiva]
     static belongsTo =[catalogo: CatalogoLocales]
     
