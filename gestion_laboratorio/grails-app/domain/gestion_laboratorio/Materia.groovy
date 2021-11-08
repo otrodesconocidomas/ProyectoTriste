@@ -14,4 +14,7 @@ class Materia {
         uV min: 1, max:20
         prerequisito nullable:true
     }
+    String toString(){
+        nombreMateria
+    }
 }

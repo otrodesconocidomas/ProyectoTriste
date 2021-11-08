@@ -5,7 +5,8 @@ class Local {
     String nombreLocal
     float latitud 
     float longuitud
-    static hasMany =[materiaActivaLaB:MateriaActiva]   
+    static hasMany =[materiaActivaLaB:MateriaActiva]
+    static belongsTo =[catalogo: CatalogoLocales]
     
 
     static constraints = {
